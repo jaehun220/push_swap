@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-/*마지막꺼 처음으로*/
+
 static void	push(t_stack *dest, t_stack *src)
 {
 	t_node	*tmp;
