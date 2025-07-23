@@ -10,8 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-
+/*마지막꺼 처음으로*/
 static void	reverse(t_stack *stack)
 {
-	
+	t_node	*tmp;
+
+	if (!stack || stack->size < 2)
+		return ;
+	tmp = stack->bottom;
+	stack->bottom = tmp->next;
+	stack->bottom->prev = NULL;
+	tmp->next = NULL;
+	tmp->prev = stack->top;
+	stack->top->next = tmp;
+	stack->top = tmp;
+}
+
+void	rra(t_stack *a)
+{
+	reverse(a);
+	ft_putstr("rra");
+}
+
+void	rrb(t_stack *b)
+{
+	reverse(b);
+	ft_putstr("rrb");
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	reverse(a);
+	reverse(b);
+	ft_putstr("rrr");
 }
