@@ -18,15 +18,18 @@
 typedef struct s_node
 {
 	int		value;
-	s_node *next;
-	s_node *prev;
+	t_node	*next;
+	t_node	*prev;
 }t_node;
 
 typedef struct s_stack
 {
-	int 	size;
-	t_node *top;
-	t_node *bottom;
+	int		size;
+	t_node	*top;
+	t_node	*bottom;
 }t_stack;
 
-# endif
+/*utils*/
+void	ft_putstr(char *str);
+
+#endif
