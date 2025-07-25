@@ -33,11 +33,11 @@ static void	push(t_stack *dest, t_stack *src)
 void	pa(t_stack *a, t_stack *b)
 {
 	push(a, b);
-	ft_putstr("pa\n");
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack *a, t_stack *b)
 {
 	push(b, a);
-	ft_putstr("pb\n");
+	ft_putstr_fd("pb\n", 1);
 }

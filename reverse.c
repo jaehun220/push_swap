@@ -29,18 +29,18 @@ static void	reverse(t_stack *stack)
 void	rra(t_stack *a)
 {
 	reverse(a);
-	ft_putstr("rra");
+	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_stack *b)
 {
 	reverse(b);
-	ft_putstr("rrb");
+	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
 	reverse(a);
 	reverse(b);
-	ft_putstr("rrr");
+	ft_putstr_fd("rrr\n", 1);
 }

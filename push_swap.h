@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "./libft/libft.h"
 
 typedef struct s_node
 {
@@ -30,7 +31,6 @@ typedef struct s_stack
 }t_stack;
 
 /* utils */
-void	ft_putstr(char *str);
 
 /*스택 함수들*/
 void	sa(t_stack *a);
