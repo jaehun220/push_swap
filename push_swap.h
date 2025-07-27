@@ -31,6 +31,17 @@ typedef struct s_stack
 }t_stack;
 
 /* utils */
+int		is_sort(t_stack *a);
+int		get_min(t_stack *a);
+int		get_max(t_stack *a);
+void	free_stack(t_stack *stack);
+
+/*simple sort*/
+int		get_index(t_stack *a, int v);
+void	sort3(t_stack *a);
+void	sort4(t_stack *a, t_stack *b);
+void	sort5(t_stack *a, t_stack *b);
+void	simple_sort(t_stack *a, t_stack *b);
 
 /*스택 함수들*/
 void	sa(t_stack *a);
