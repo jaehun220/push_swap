@@ -12,9 +12,5 @@
 
 int	main(int argc, char const *argv[])
 {
-	if (argc < 2)
-	{
-		/* code */
-	}
 	return (0);
 }

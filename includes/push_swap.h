@@ -35,13 +35,19 @@ int		is_sort(t_stack *a);
 int		get_min(t_stack *a);
 int		get_max(t_stack *a);
 void	free_stack(t_stack *stack);
+int		*get_distance(t_stack *a, int *range, int result[2]);
 
 /*simple sort*/
 int		get_index(t_stack *a, int v);
-void	sort3(t_stack *a);
-void	sort4(t_stack *a, t_stack *b);
-void	sort5(t_stack *a, t_stack *b);
 void	simple_sort(t_stack *a, t_stack *b);
+
+/*big sort*/
+void	big_sort(t_stack *a, t_stack *b);
+
+/*make_chunk*/
+int		chunk_count(int n);
+int		*make_chunk_bounds(t_stack *a, int chunk_cnt);
+int		chunk_bound_check(int v, int *bounds, int chunk_cnt);
 
 /*스택 함수들*/
 void	sa(t_stack *a);

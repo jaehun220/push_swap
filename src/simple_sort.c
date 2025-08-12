@@ -27,7 +27,7 @@ int	get_index(t_stack *a, int v)
 	return (-1);
 }
 
-void	sort3(t_stack *a)
+static void	sort3(t_stack *a)
 {
 	int	max_idx;
 	int	min_idx;
@@ -54,7 +54,7 @@ void	sort3(t_stack *a)
 	}
 }
 
-void	sort4(t_stack *a, t_stack *b)
+static void	sort4(t_stack *a, t_stack *b)
 {
 	int	min_idx;
 
@@ -76,7 +76,7 @@ void	sort4(t_stack *a, t_stack *b)
 	pa(a, b);
 }
 
-void	sort5(t_stack *a, t_stack *b)
+static void	sort5(t_stack *a, t_stack *b)
 {
 	int	min_idx;
 
