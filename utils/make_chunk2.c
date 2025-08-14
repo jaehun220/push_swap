@@ -22,7 +22,26 @@ int	chunk_count(int n)
 	return (18);
 }
 
-int	get_instance(t_stack *a)
+int	*get_instance(t_stack *a, int value)
 {
-	
+	t_node	*next;
+	t_node	*prev;
+	int		up;
+	int		down;
+	int		distance[2];
+
+	down = 0;
+	up = 1;
+	prev = a->top;
+	next = a->bottom;
+	while (next->value != value || prev->value != value)
+	{
+		next = next->next;
+		prev = prev->prev;
+		up++;
+		down++;
+	}
+	distance[0] = up;
+	distance[1] = down;
+	return (distance);
 }

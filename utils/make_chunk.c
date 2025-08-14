@@ -65,6 +65,7 @@ static int	check_idx(long idx, int size)
 	return ((int)idx);
 }
 
+/*경계 idx 찾는 함수*/
 int	*make_chunk_bounds(t_stack *a, int chunk_cnt)
 {
 	int		*src;
@@ -92,6 +93,7 @@ int	*make_chunk_bounds(t_stack *a, int chunk_cnt)
 	return (free(src), bounds);
 }
 
+/*청크 범위에 들어가는지 체크하는 함수*/
 int	chunk_bound_check(int v, int *bounds, int chunk_cnt)
 {
 	int	i;

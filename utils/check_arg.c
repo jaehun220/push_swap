@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
+#include "push_swap.h"
 
-// void	print_error()
-// {
-// 	return ;
-// }
+int	*parsing_arg(int argc, char *argv[])
+{
+	int		i;
+
+	i = 1;
+	while (i < argc)
+	{
+		
+	}
+}
