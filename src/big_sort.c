@@ -16,11 +16,26 @@ void	big_sort(t_stack *a, t_stack *b)
 {
 	int		chunk_cnt;
 	int		*bounds;
-	t_node	*cur;
+	int		i;
+	int		*distance;
 
 	if (!a || !b)
 		return ;
-	cur = a->top;
 	chunk_cnt = chunk_count(a->size);
 	bounds = make_chunk_bounds(a, chunk_cnt);
+	i = 0;
+	while (a->size > 1)
+	{
+		distance = get_distance(a, bounds, chunk_cnt);
+		if (distance > 0)
+		{
+			while (distance--)
+				ra(a);
+		}
+		else
+		{
+			while (distance++)
+				rra(a);
+		}
+	}
 }

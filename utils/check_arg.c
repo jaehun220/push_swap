@@ -17,8 +17,4 @@ int	*parsing_arg(int argc, char *argv[])
 	int		i;
 
 	i = 1;
-	while (i < argc)
-	{
-		
-	}
 }

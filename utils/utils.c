@@ -74,28 +74,3 @@ void	free_stack(t_stack *stack)
 	}
 	free(stack);
 }
-
-int	*get_distance(t_stack *a, int *range, int result[2])
-{
-	t_node	*tmp;
-	int		up;
-	int		down;
-
-	tmp = a->top;
-	up = 0;
-	down = 0;
-	while (tmp && !check_range(tmp->value, range))
-	{
-		tmp = tmp->prev;
-		up++;
-	}
-	tmp = a->top;
-	while (tmp && !check_range(tmp->value, range))
-	{
-		tmp = tmp->next;
-		down++;
-	}
-	result[0] = up;
-	result[1] = down;
-	return (result);
-}

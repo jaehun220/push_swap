@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehlee <jaehlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 15:59:10 by jaehlee           #+#    #+#             */
-/*   Updated: 2025/08/12 15:59:10 by jaehlee          ###   ########.fr       */
+/*   Created: 2025/08/15 15:34:32 by jaehlee           #+#    #+#             */
+/*   Updated: 2025/08/15 15:34:32 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 #include "push_swap.h"
 
 int	chunk_count(int n)
@@ -22,26 +24,52 @@ int	chunk_count(int n)
 	return (18);
 }
 
-int	*get_instance(t_stack *a, int value)
+static int	find_up_idx(t_stack *a, int *bounds, int chunk_cnt, int *up)
 {
-	t_node	*next;
-	t_node	*prev;
+	t_node	*tmp;
+
+	*up = 0;
+	tmp = a->top;
+	while (tmp && !chunk_bound_check(tmp->value, bounds, chunk_cnt))
+	{
+		tmp = tmp->prev;
+		*up += 1;
+	}
+	return (tmp);
+}
+
+static int	find_down_idx(t_stack *a, int *bounds, int chunk_cnt, int *down)
+{
+	t_node	*tmp;
+
+	*down = 1;
+	tmp = a->bottom;
+	while (tmp && !chunk_bound_check(tmp->value, bounds, chunk_cnt))
+	{
+		tmp = tmp->next;
+		*down += 1;
+	}
+	return (tmp);
+}
+
+int	get_distance(t_stack *a, int *bounds, int chunk_cnt)
+{
+	t_node	*up_node;
+	t_node	*down_node;
 	int		up;
 	int		down;
-	int		distance[2];
 
-	down = 0;
-	up = 1;
-	prev = a->top;
-	next = a->bottom;
-	while (next->value != value || prev->value != value)
+	up_node = find_up_idx(a, bounds, chunk_cnt, &up);
+	down_node = find_down_idx(a, bounds, chunk_cnt, &down);
+	if (up > down)
+		return (-down);
+	else if (up < down)
+		return (up);
+	else
 	{
-		next = next->next;
-		prev = prev->prev;
-		up++;
-		down++;
+		if (up_node->value < down_node->value)
+			return (up);
+		else
+			return (-down);
 	}
-	distance[0] = up;
-	distance[1] = down;
-	return (distance);
 }
