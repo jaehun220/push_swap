@@ -74,18 +74,21 @@ int	get_distance_a(t_stack *a, int *bounds, int chunk_cnt)
 	}
 }
 
-int	get_distance_b(t_stack *b, int *bounds, int chunk_cnt)
+int	get_distance_b(t_stack *b)
 {
-	t_node	*up_node;
-	t_node	*down_node;
-	int		up;
-	int		down;
+	int		max;
+	int		distance;
+	t_node	*temp;
 
-	up_node = find_up_idx(b, bounds, chunk_cnt, &up);
-	down_node = find_down_idx(b, bounds, chunk_cnt, &down);
-	if (up <= down)
-		return (up);
-	else
-		return (-down);
+	max = get_max(b);
+	distance = 0;
+	temp = b->top;
+	while (temp->value != max)
+	{
+		temp = temp->prev;
+		distance++;
+	}
+	if (distance <= (b->size - distance))
+		return (distance);
+	return (distance - b->size);
 }
-
