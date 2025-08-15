@@ -35,19 +35,19 @@ static void	a_to_b(t_stack *a, t_stack *b, int *bounds, int chunk_cnt)
 
 static void	b_to_a(t_stack *a, t_stack *b, int *bounds, int chunk_cnt)
 {
-	int	distnace;
+	int	distance;
 
 	while (b->size > 0)
 	{
-		distnace = get_distance_b(b, bounds, chunk_cnt);
-		if (distnace > 0)
+		distance = get_distance_b(b, bounds, chunk_cnt);
+		if (distance > 0)
 		{
-			while (distnace--)
+			while (distance--)
 				rb(b);
 		}
 		else
 		{
-			while (distnace++)
+			while (distance++)
 				rrb(b);
 		}
 		pa(a, b);
