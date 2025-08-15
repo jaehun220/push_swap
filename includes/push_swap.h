@@ -35,7 +35,9 @@ int		is_sort(t_stack *a);
 int		get_min(t_stack *a);
 int		get_max(t_stack *a);
 void	free_stack(t_stack *stack);
-int		*get_distance(t_stack *a, int *bounds, int chunk_cnt);
+int		get_distance_a(t_stack *a, int *bounds, int chunk_cnt);
+int		get_distance_b(t_stack *b, int *bounds, int chunk_cnt);
+
 
 /*simple sort*/
 int		get_index(t_stack *a, int v);

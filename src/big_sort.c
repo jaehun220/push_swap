@@ -12,21 +12,13 @@
 
 #include "push_swap.h"
 
-void	big_sort(t_stack *a, t_stack *b)
+static void	a_to_b(t_stack *a, t_stack *b, int *bounds, int chunk_cnt)
 {
-	int		chunk_cnt;
-	int		*bounds;
-	int		i;
-	int		*distance;
+	int	distance;
 
-	if (!a || !b)
-		return ;
-	chunk_cnt = chunk_count(a->size);
-	bounds = make_chunk_bounds(a, chunk_cnt);
-	i = 0;
 	while (a->size > 1)
 	{
-		distance = get_distance(a, bounds, chunk_cnt);
+		distance = get_distance_a(a, bounds, chunk_cnt);
 		if (distance > 0)
 		{
 			while (distance--)
@@ -37,5 +29,44 @@ void	big_sort(t_stack *a, t_stack *b)
 			while (distance++)
 				rra(a);
 		}
+		pb(a, b);
 	}
+}
+
+static void	b_to_a(t_stack *a, t_stack *b, int *bounds, int chunk_cnt)
+{
+	int	distnace;
+
+	while (b->size > 0)
+	{
+		distnace = get_distance_b(b, bounds, chunk_cnt);
+		if (distnace > 0)
+		{
+			while (distnace--)
+				ra(b);
+		}
+		else
+		{
+			while (distnace++)
+				rra(b);
+		}
+		pa(a, b);
+	}
+}
+
+void	big_sort(t_stack *a, t_stack *b)
+{
+	int		chunk_cnt;
+	int		*bounds;
+	int		distance;
+
+	if (!a || !b)
+		return ;
+	chunk_cnt = chunk_count(a->size);
+	bounds = make_chunk_bounds(a, chunk_cnt);
+	if (!bounds)
+		return ;
+	a_to_b(a, b, bounds, chunk_cnt);
+	b_to_a(a, b, bounds, chunk_cnt);
+	free(bounds);
 }
