@@ -52,8 +52,12 @@ int		chunk_bound_check(int v, int *bounds, int chunk_cnt);
 
 /*check_arg*/
 int		print_error(int type);
-int		*check_digit(char *str, int *count);
-
+int		check_digit(char *str, int *arr, int *count);
+int		*parsing_arg(int argc, char **argv);
+int		has_duplicate(int *arr, int n);
+int		count_tokens(char *str);
+int		validate_tokens(char **sp);
+void	free_split(char **arr);
 /*스택 함수들*/
 void	sa(t_stack *a);
 void	sb(t_stack *b);
@@ -68,5 +72,9 @@ void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
 int		ft_atoill(const char *str);
+
+/*stack*/
+t_stack	*stack_init(void);
+t_stack	*stack_fill(t_stack *a, int *arr, int count);
 
 #endif

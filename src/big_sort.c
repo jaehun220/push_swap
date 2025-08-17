@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	a_to_b(t_stack *a, t_stack *b, int *bounds, int chunk_cnt)
 {

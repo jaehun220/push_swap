@@ -9,7 +9,7 @@
 /*   Updated: 2025/07/23 15:57:46 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 /*마지막꺼 처음으로*/
 static void	reverse(t_stack *stack)
 {

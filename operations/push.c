@@ -9,7 +9,7 @@
 /*   Updated: 2025/07/23 15:57:53 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	push(t_stack *dest, t_stack *src)
 {

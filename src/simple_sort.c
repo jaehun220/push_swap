@@ -9,7 +9,7 @@
 /*   Updated: 2025/07/25 18:34:09 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	get_index(t_stack *a, int v)
 {

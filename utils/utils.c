@@ -9,7 +9,7 @@
 /*   Updated: 2025/07/23 16:47:36 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	get_min(t_stack *a)
 {

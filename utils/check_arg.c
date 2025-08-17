@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-static void	free_split(char **arr)
+#include "../includes/push_swap.h"
+/*split한거 free*/
+void	free_split(char **arr)
 {
 	int	i;
 
@@ -24,10 +24,12 @@ static void	free_split(char **arr)
 	free(arr);
 }
 
+/*문자열에 숫자만 있는지 체크*/
 static int	is_numeric_token(const char *s)
 {
 	int	i;
 
+	i = 0;
 	if (!s || !*s)
 		return (0);
 	if (s[i] == '+' || s[i] == '-')
@@ -43,7 +45,8 @@ static int	is_numeric_token(const char *s)
 	return (1);
 }
 
-static int	validate_tokens(char **sp)
+/*문자열 배열에 숫자만 있는지 체크*/
+int	validate_tokens(char **sp)
 {
 	int	i;
 
@@ -59,41 +62,27 @@ static int	validate_tokens(char **sp)
 	return (1);
 }
 
-static int	*convert_tokens(char **sp, int count)
-{
-	int		*arr;
-	int		i;
-
-	arr = (int *)malloc(sizeof(int) * count);
-	if (!arr)
-		return (NULL);
-	i = 0;
-	while (sp[i])
-	{
-		arr[i] = (int)ft_atoill(sp[i]);
-		i++;
-	}
-	return (arr);
-}
-
-int	*check_digit(char *str, int *count)
+/*int arr배열에 문자열 배열에 있는 숫자 인자들을 int형으로 바꿔서 밀*/
+int	check_digit(char *str, int *arr, int *count)
 {
 	char	**sp;
 	int		*arr;
-	int		c;
+	int		i;
 
-	if (!str || !count)
-		return (NULL);
+	if (!str ||! arr || !count)
+		return (-1);
 	sp = ft_split(str, ' ');
 	if (!sp)
-		return (NULL);
+		return (-1);
 	if (!validate_tokens(sp))
-		return (free_split(sp), NULL);
-	c = 0;
-	while (sp[c])
-		c++;
-	*count = c;
-	arr = convert_tokens(sp, c);
+		return (free_split(sp), -1);
+	i = 0;
+	while (sp[i])
+	{
+		arr[*count] = ft_atoill(sp[i]);
+		*count++;
+		i++;
+	}
 	free_split(sp);
-	return (arr);
+	return (0);
 }

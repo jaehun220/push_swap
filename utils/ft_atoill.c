@@ -9,7 +9,8 @@
 /*   Updated: 2025/04/04 15:42:45 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include "../includes/push_swap.h"
 
 static int	is_space(char c)
 {

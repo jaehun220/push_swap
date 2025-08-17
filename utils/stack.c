@@ -9,7 +9,7 @@
 /*   Updated: 2025/08/17 14:54:21 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static t_node	*node_init(int value)
 {
