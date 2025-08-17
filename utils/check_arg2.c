@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehlee <jaehlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 15:38:23 by jaehlee           #+#    #+#             */
-/*   Updated: 2025/07/23 15:38:23 by jaehlee          ###   ########.fr       */
+/*   Created: 2025/07/27 21:06:47 by jaehlee           #+#    #+#             */
+/*   Updated: 2025/07/27 21:06:47 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	main(int argc, char const *argv[])
+int	*parsing_arg(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	i;
 
-	if (argc < 2)
-		print_error(0);
-	if (argc <= 5)
-		simple_sort(a, b);
-	else
-		big_sort(a, b);
-	return (0);
+	
 }

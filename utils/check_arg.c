@@ -12,28 +12,88 @@
 
 #include "push_swap.h"
 
-void	print_error(int type)
+static void	free_split(char **arr)
 {
-	if (type >= 1)
-		ft_putstr("Error\n", 2);
-	exit(1);
+	int	i;
+
+	if (!arr)
+		return ;
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
 
-int	error_check(int argc, char *argv[])
+static int	is_numeric_token(const char *s)
 {
-	int		i;
-	int		j;
-	char	**arg_list;
+	int	i;
 
-	i = 1;
-	while (argv[i])
+	if (!s || !*s)
+		return (0);
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	if (!s[i])
+		return (0);
+	while (s[i])
 	{
-		j = 0;
-		arg_list = ft_split(argv[i], ' ');
-		if (arg_list == NULL)
-			return (-1);
-		if (ft_isdigit(arg_list[j]) == 0)
-			return (free(arg_list), -1);
-		
+		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
 	}
+	return (1);
+}
+
+static int	validate_tokens(char **sp)
+{
+	int	i;
+
+	if (!sp || !sp[0])
+		return (0);
+	i = 0;
+	while (sp[i])
+	{
+		if (!is_numeric_token(sp[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static int	*convert_tokens(char **sp, int count)
+{
+	int		*arr;
+	int		i;
+
+	arr = (int *)malloc(sizeof(int) * count);
+	if (!arr)
+		return (NULL);
+	i = 0;
+	while (sp[i])
+	{
+		arr[i] = (int)ft_atoill(sp[i]);
+		i++;
+	}
+	return (arr);
+}
+
+int	*check_digit(char *str, int *count)
+{
+	char	**sp;
+	int		*arr;
+	int		c;
+
+	if (!str || !count)
+		return (NULL);
+	sp = ft_split(str, ' ');
+	if (!sp)
+		return (NULL);
+	if (!validate_tokens(sp))
+		return (free_split(sp), NULL);
+	c = 0;
+	while (sp[c])
+		c++;
+	*count = c;
+	arr = convert_tokens(sp, c);
+	free_split(sp);
+	return (arr);
 }

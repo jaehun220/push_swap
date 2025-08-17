@@ -65,12 +65,12 @@ static int	check_idx(long idx, int size)
 	return ((int)idx);
 }
 
-/*경계 idx 찾는 함수*/
+/*경계 idx의 값을 찾는 함수*/
 int	*make_chunk_bounds(t_stack *a, int chunk_cnt)
 {
 	int		*src;
 	int		*bounds;
-	int		i;
+	int		i;	
 	long	end_idx;
 
 	if (!a || a->size <= 0 || chunk_cnt <= 0)
