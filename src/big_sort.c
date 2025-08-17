@@ -33,13 +33,13 @@ static void	a_to_b(t_stack *a, t_stack *b, int *bounds, int chunk_cnt)
 	}
 }
 
-static void	b_to_a(t_stack *a, t_stack *b, int *bounds, int chunk_cnt)
+static void	b_to_a(t_stack *a, t_stack *b)
 {
 	int	distance;
 
 	while (b->size > 0)
 	{
-		distance = get_distance_b(b, bounds, chunk_cnt);
+		distance = get_distance_b(b);
 		if (distance > 0)
 		{
 			while (distance--)
@@ -67,6 +67,6 @@ void	big_sort(t_stack *a, t_stack *b)
 		return ;
 	a_to_b(a, b, bounds, chunk_cnt);
 	simple_sort(a, b);
-	b_to_a(a, b, bounds, chunk_cnt);
+	b_to_a(a, b);
 	free(bounds);
 }

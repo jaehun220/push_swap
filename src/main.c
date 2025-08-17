@@ -20,7 +20,7 @@ int	main(int argc, char const **argv)
 
 	if (argc < 2)
 		print_error(0);
-	arr = parsing_arg(argc, argv);
+	arr = parsing_arg(argv);
 	count = get_count(argv);
 	if (!arr)
 		print_error(1);
