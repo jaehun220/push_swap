@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 #include "../includes/push_swap.h"
 
-int	main(int argc, char const *argv[])
+int	main(int argc, char const **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	int		*arr;
+	int		count;
 
 	if (argc < 2)
 		print_error(0);

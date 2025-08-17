@@ -14,13 +14,13 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_node
 {
-	int		value;
-	t_node	*next;
-	t_node	*prev;
+	int				value;
+	struct s_node	*next;
+	struct s_node	*prev;
 }t_node;
 
 typedef struct s_stack
@@ -53,11 +53,12 @@ int		chunk_bound_check(int v, int *bounds, int chunk_cnt);
 /*check_arg*/
 int		print_error(int type);
 int		check_digit(char *str, int *arr, int *count);
-int		*parsing_arg(int argc, char **argv);
+int		*parsing_arg(int argc, const char **argv);
 int		has_duplicate(int *arr, int n);
 int		count_tokens(char *str);
 int		validate_tokens(char **sp);
 void	free_split(char **arr);
+
 /*스택 함수들*/
 void	sa(t_stack *a);
 void	sb(t_stack *b);

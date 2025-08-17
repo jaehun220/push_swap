@@ -23,7 +23,7 @@ static int	is_space(char c)
 int	print_error(int type)
 {
 	if (type >= 1)
-		ft_putstr("Error\n", 2);
+		ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
 

@@ -71,7 +71,7 @@ int	has_duplicate(int *arr, int n)
 	return (0);
 }
 
-int	*parsing_arg(int argc, char **argv)
+int	*parsing_arg(int argc, const char **argv)
 {
 	int	total;
 	int	i;
