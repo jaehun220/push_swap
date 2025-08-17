@@ -29,7 +29,7 @@ int	main(int argc, char const **argv)
 	a = stack_init();
 	b = stack_init();
 	a = stack_fill(a, arr, count);
-	if (argc <= 5)
+	if (count <= 5)
 		simple_sort(a, b);
 	else
 		big_sort(a, b);

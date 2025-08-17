@@ -18,10 +18,11 @@ int	get_index(t_stack *a, int v)
 
 	index = 1;
 	tmp = a->top;
-	while (tmp && tmp->next)
+	while (tmp)
 	{
 		if (tmp->value == v)
 			return (index);
+		tmp = tmp->next;
 		index++;
 	}
 	return (-1);

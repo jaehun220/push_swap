@@ -52,7 +52,7 @@ int		chunk_bound_check(int v, int *bounds, int chunk_cnt);
 
 /*check_arg*/
 int		print_error(int type);
-int		check_digit(const char *str, int *arr, int *count);
+int		check_digit(const char *str, int *arr, int *count, int cap);
 int		*parsing_arg(const char **argv);
 int		has_duplicate(int *arr, int n);
 int		validate_tokens(char **sp);

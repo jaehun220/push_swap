@@ -5,11 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehlee <jaehlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 15:57:46 by jaehlee           #+#    #+#             */
-/*   Updated: 2025/07/23 15:57:46 by jaehlee          ###   ########.fr       */
+/*   Created: 2025/08/17 20:57:33 by jaehlee           #+#    #+#             */
+/*   Updated: 2025/08/17 20:57:33 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/push_swap.h"
+
 /*마지막꺼 처음으로*/
 static void	reverse(t_stack *stack)
 {
@@ -18,12 +20,12 @@ static void	reverse(t_stack *stack)
 	if (!stack || stack->size < 2)
 		return ;
 	tmp = stack->bottom;
-	stack->bottom = tmp->next;
-	stack->bottom->prev = NULL;
-	tmp->next = NULL;
-	tmp->prev = stack->top;
-	stack->top->next = tmp;
+	stack->bottom = tmp->prev;
+	stack->bottom->next = NULL;
+	tmp->next = stack->top;
+	stack->top->prev = tmp;
 	stack->top = tmp;
+	tmp->prev = NULL;
 }
 
 void	rra(t_stack *a)

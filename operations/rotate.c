@@ -5,11 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehlee <jaehlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 15:57:49 by jaehlee           #+#    #+#             */
-/*   Updated: 2025/07/23 15:57:49 by jaehlee          ###   ########.fr       */
+/*   Created: 2025/08/17 20:57:38 by jaehlee           #+#    #+#             */
+/*   Updated: 2025/08/17 20:57:38 by jaehlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../includes/push_swap.h"
+
 /*처음꺼 마지막으로*/
 static void	rotate(t_stack *stack)
 {
@@ -18,12 +20,12 @@ static void	rotate(t_stack *stack)
 	if (!stack || stack->size < 2)
 		return ;
 	tmp = stack->top;
-	stack->top = tmp->prev;
-	stack->top->next = NULL;
-	tmp->prev = NULL;
-	tmp->next = stack->bottom;
-	stack->bottom->prev = tmp;
+	stack->top = tmp->next;
+	stack->top->prev = NULL;
+	tmp->prev = stack->bottom;
+	stack->bottom->next = tmp;
 	stack->bottom = tmp;
+	tmp->next = NULL;
 }
 
 void	ra(t_stack *a)

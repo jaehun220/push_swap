@@ -18,11 +18,11 @@ int	get_min(t_stack *a)
 
 	tmp = a->top;
 	min = tmp->value;
-	while (tmp && tmp->prev)
+	while (tmp && tmp->next)
 	{
-		if (min > tmp->prev->value)
-			min = tmp->prev->value;
-		tmp = tmp->prev;
+		if (min > tmp->next->value)
+			min = tmp->next->value;
+		tmp = tmp->next;
 	}
 	return (min);
 }
@@ -34,27 +34,27 @@ int	get_max(t_stack *a)
 
 	tmp = a->top;
 	max = tmp->value;
-	while (tmp && tmp->prev)
+	while (tmp && tmp->next)
 	{
-		if (max < tmp->prev->value)
-			max = tmp->prev->value;
-		tmp = tmp->prev;
+		if (max < tmp->next->value)
+			max = tmp->next->value;
+		tmp = tmp->next;
 	}
 	return (max);
 }
 
 int	is_sort(t_stack *a)
 {
-	t_node	*head;
+	t_node	*cur;
 
-	if (a->size == 0 || a->size == 1)
+	if (!a || a->size <= 1)
 		return (1);
-	head = a->top;
-	while (head && head->prev)
+	cur = a->top;
+	while (cur && cur->next)
 	{
-		if (head->value > head->prev->value)
+		if (cur->value <= cur->next->value)
 			return (0);
-		head = head->prev;
+		cur = cur->next;
 	}
 	return (1);
 }

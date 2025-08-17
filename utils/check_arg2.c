@@ -36,12 +36,12 @@ int	get_count(const char **argv)
 	int	count;
 	int	total;
 
-	i = 0;
+	i = 1;
 	total = 0;
 	count = 0;
 	while (argv[i])
 	{
-		count_tokens(argv[i]);
+		count = count_tokens(argv[i]);
 		if (count < 0)
 			return (-1);
 		total += count;
@@ -76,7 +76,7 @@ int	*parsing_arg(const char **argv)
 {
 	int	total;
 	int	i;
-	int	*count;
+	int	count;
 	int	*arr;
 
 	total = get_count(argv);
@@ -89,7 +89,7 @@ int	*parsing_arg(const char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (check_digit(argv[i], arr, count) != 0)
+		if (check_digit(argv[i], arr, &count, total) != 0)
 			return (free(arr), NULL);
 		i++;
 	}

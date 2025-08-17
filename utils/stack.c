@@ -42,14 +42,14 @@ t_stack	*stack_fill(t_stack *a, int *arr, int count)
 	int		i;
 	t_node	*new;
 
-	i = 0;
-	while (i < count)
+	i = count - 1;
+	while (i >= 0)
 	{
 		new = node_init(arr[i]);
 		if (!new)
 			return (NULL);
 		if (a->size == 0)
-		{	
+		{
 			a->bottom = new;
 			a->top = new;
 		}
@@ -60,7 +60,7 @@ t_stack	*stack_fill(t_stack *a, int *arr, int count)
 			a->top = new;
 		}
 		a->size++;
-		i++;
+		i--;
 	}
 	return (a);
 }
