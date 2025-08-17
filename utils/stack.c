@@ -21,7 +21,6 @@ static t_node	*node_init(int value)
 	node->value = value;
 	node->next = NULL;
 	node->prev = NULL;
-
 	return (node);
 }
 
