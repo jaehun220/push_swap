@@ -36,7 +36,7 @@ int		get_min(t_stack *a);
 int		get_max(t_stack *a);
 void	free_stack(t_stack *stack);
 int		get_distance_a(t_stack *a, int *bounds, int chunk_cnt);
-int		get_distance_b(t_stack *b, int *bounds, int chunk_cnt);
+int		get_distance_b(t_stack *b);
 
 /*simple sort*/
 int		get_index(t_stack *a, int v);
@@ -52,12 +52,12 @@ int		chunk_bound_check(int v, int *bounds, int chunk_cnt);
 
 /*check_arg*/
 int		print_error(int type);
-int		check_digit(char *str, int *arr, int *count);
-int		*parsing_arg(int argc, const char **argv);
+int		check_digit(const char *str, int *arr, int *count);
+int		*parsing_arg(const char **argv);
 int		has_duplicate(int *arr, int n);
-int		count_tokens(char *str);
 int		validate_tokens(char **sp);
 void	free_split(char **arr);
+int		get_count(const char **argv);
 
 /*스택 함수들*/
 void	sa(t_stack *a);

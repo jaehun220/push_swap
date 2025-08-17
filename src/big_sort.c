@@ -58,7 +58,6 @@ void	big_sort(t_stack *a, t_stack *b)
 {
 	int		chunk_cnt;
 	int		*bounds;
-	int		distance;
 
 	if (!a || !b)
 		return ;

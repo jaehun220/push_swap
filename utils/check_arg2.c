@@ -13,7 +13,7 @@
 #include "../includes/push_swap.h"
 
 /*str에 숫자가 몇개 있는지 체크*/
-int	count_tokens(char *str)
+static int	count_tokens(const char *str)
 {
 	char	**sp;
 	int		c;
@@ -30,7 +30,7 @@ int	count_tokens(char *str)
 	return (c);
 }
 
-static int	get_count(char **argv)
+int	get_count(const char **argv)
 {
 	int	i;
 	int	count;
@@ -38,6 +38,7 @@ static int	get_count(char **argv)
 
 	i = 0;
 	total = 0;
+	count = 0;
 	while (argv[i])
 	{
 		count_tokens(argv[i]);
@@ -71,11 +72,11 @@ int	has_duplicate(int *arr, int n)
 	return (0);
 }
 
-int	*parsing_arg(int argc, const char **argv)
+int	*parsing_arg(const char **argv)
 {
 	int	total;
 	int	i;
-	int	count;
+	int	*count;
 	int	*arr;
 
 	total = get_count(argv);

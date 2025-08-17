@@ -21,13 +21,14 @@ int	main(int argc, char const **argv)
 	if (argc < 2)
 		print_error(0);
 	arr = parsing_arg(argc, argv);
+	count = get_count(argv);
 	if (!arr)
 		print_error(1);
-	if (has_duplicate(arr, count_tokens(arr)))
+	if (has_duplicate(arr, count))
 		print_error(1);
 	a = stack_init();
 	b = stack_init();
-	a = stack_fill(a, arr, count_tokens(arr));
+	a = stack_fill(a, arr, count);
 	if (argc <= 5)
 		simple_sort(a, b);
 	else

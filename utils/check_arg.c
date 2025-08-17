@@ -63,10 +63,9 @@ int	validate_tokens(char **sp)
 }
 
 /*int arr배열에 문자열 배열에 있는 숫자 인자들을 int형으로 바꿔서 밀*/
-int	check_digit(char *str, int *arr, int *count)
+int	check_digit(const char *str, int *arr, int *count)
 {
 	char	**sp;
-	int		*arr;
 	int		i;
 
 	if (!str ||! arr || !count)
@@ -79,8 +78,7 @@ int	check_digit(char *str, int *arr, int *count)
 	i = 0;
 	while (sp[i])
 	{
-		arr[*count] = ft_atoill(sp[i]);
-		*count++;
+		arr[*count++] = ft_atoill(sp[i]);
 		i++;
 	}
 	free_split(sp);

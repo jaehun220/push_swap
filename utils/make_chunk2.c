@@ -23,7 +23,7 @@ int	chunk_count(int n)
 	return (18);
 }
 
-static int	find_up_idx(t_stack *a, int *bounds, int chunk_cnt, int *up)
+static t_node	*find_up_idx(t_stack *a, int *bounds, int chunk_cnt, int *up)
 {
 	t_node	*tmp;
 
@@ -37,13 +37,13 @@ static int	find_up_idx(t_stack *a, int *bounds, int chunk_cnt, int *up)
 	return (tmp);
 }
 
-static int	find_down_idx(t_stack *a, int *bounds, int chunk_cnt, int *down)
+static t_node	*find_down_idx(t_stack *a, int *bounds, int cnt, int *down)
 {
 	t_node	*tmp;
 
 	*down = 1;
 	tmp = a->bottom;
-	while (tmp && !chunk_bound_check(tmp->value, bounds, chunk_cnt))
+	while (tmp && !chunk_bound_check(tmp->value, bounds, cnt))
 	{
 		tmp = tmp->next;
 		*down += 1;
