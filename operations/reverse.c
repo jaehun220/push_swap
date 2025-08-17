@@ -23,9 +23,9 @@ static void	reverse(t_stack *stack)
 	stack->bottom = tmp->prev;
 	stack->bottom->next = NULL;
 	tmp->next = stack->top;
+	tmp->prev = NULL;
 	stack->top->prev = tmp;
 	stack->top = tmp;
-	tmp->prev = NULL;
 }
 
 void	rra(t_stack *a)

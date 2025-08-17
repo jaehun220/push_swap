@@ -18,8 +18,8 @@ static void	swap(t_stack *stack)
 	if (stack->size == 0 || stack->size == 1)
 		return ;
 	temp = stack->top->value;
-	stack->top->value = stack->top->prev->value;
-	stack->top->prev->value = temp;
+	stack->top->value = stack->top->next->value;
+	stack->top->next->value = temp;
 }
 
 void	sa(t_stack *a)

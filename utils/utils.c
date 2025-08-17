@@ -52,7 +52,7 @@ int	is_sort(t_stack *a)
 	cur = a->top;
 	while (cur && cur->next)
 	{
-		if (cur->value <= cur->next->value)
+		if (cur->value >= cur->next->value)
 			return (0);
 		cur = cur->next;
 	}
