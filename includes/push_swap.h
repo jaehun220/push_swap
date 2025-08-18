@@ -37,6 +37,8 @@ int		get_max(t_stack *a);
 void	free_stack(t_stack *stack);
 int		get_distance_a(t_stack *a, int *bounds, int chunk_cnt);
 int		get_distance_b(t_stack *b);
+int		*stack_to_arr(t_stack *a);
+void	arr_sort(int *arr, int n);
 
 /*simple sort*/
 int		get_index(t_stack *a, int v);

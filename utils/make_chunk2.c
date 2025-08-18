@@ -31,7 +31,7 @@ static t_node	*find_up_idx(t_stack *a, int *bounds, int chunk_cnt, int *up)
 	tmp = a->top;
 	while (tmp && !chunk_bound_check(tmp->value, bounds, chunk_cnt))
 	{
-		tmp = tmp->prev;
+		tmp = tmp->next;
 		*up += 1;
 	}
 	return (tmp);
@@ -45,7 +45,7 @@ static t_node	*find_down_idx(t_stack *a, int *bounds, int cnt, int *down)
 	tmp = a->bottom;
 	while (tmp && !chunk_bound_check(tmp->value, bounds, cnt))
 	{
-		tmp = tmp->next;
+		tmp = tmp->prev;
 		*down += 1;
 	}
 	return (tmp);
@@ -84,7 +84,7 @@ int	get_distance_b(t_stack *b)
 	temp = b->top;
 	while (temp->value != max)
 	{
-		temp = temp->prev;
+		temp = temp->next;
 		distance++;
 	}
 	if (distance <= (b->size - distance))

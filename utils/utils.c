@@ -68,7 +68,7 @@ void	free_stack(t_stack *stack)
 	while (stack->size != 0)
 	{
 		tmp = stack->top;
-		stack->top = stack->top->prev;
+		stack->top = stack->top->next;
 		free(tmp);
 		stack->size--;
 	}
