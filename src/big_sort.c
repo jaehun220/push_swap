@@ -12,25 +12,46 @@
 
 #include "../includes/push_swap.h"
 
+static int	has_chunk_in_a(t_stack *a, int *bounds, int chunk_cnt, int target)
+{
+	t_node	*p;
+
+	if (!a || a->size == 0)
+		return (0);
+	p = a->top;
+	while (p)
+	{
+		if (chunk_bound_check(p->value, bounds, chunk_cnt) == target)
+			return (1);
+		p = p->next;
+	}
+	return (0);
+}
+
 static void	a_to_b(t_stack *a, t_stack *b, int *bounds, int chunk_cnt)
 {
-	int	distance;
+	int	i;
+	int	d;
 
-	while (a->size > 5)
+	i = 0;
+	while (i < chunk_cnt && a->size > 0)
 	{
-		distance = get_distance_a(a, bounds, chunk_cnt);
-		if (distance > 0)
+		if (!has_chunk_in_a(a, bounds, chunk_cnt, i))
 		{
-			while (distance--)
+			i++;
+			continue ;
+		}
+		d = get_distance_a(a, bounds, chunk_cnt, i);
+		if (d > 0)
+			while (d--)
 				ra(a);
-		}
-		else
-		{
-			while (distance++)
+		else if (d < 0)
+			while (d++)
 				rra(a);
-		}
 		pb(a, b);
 	}
+	while (a->size > 0)
+		pb(a, b);
 }
 
 static void	b_to_a(t_stack *a, t_stack *b)
@@ -47,7 +68,7 @@ static void	b_to_a(t_stack *a, t_stack *b)
 		}
 		else
 		{
-			while (distance++)
+			while (distance++ < 0)
 				rrb(b);
 		}
 		pa(a, b);

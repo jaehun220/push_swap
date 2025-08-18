@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-static int	*stack_to_arr(t_stack *a)
+int	*stack_to_arr(t_stack *a)
 {
 	int		*arr;
 	int		i;
@@ -28,12 +28,12 @@ static int	*stack_to_arr(t_stack *a)
 	while (cur)
 	{
 		arr[i++] = cur->value;
-		cur = cur->prev;
+		cur = cur->next;
 	}
 	return (arr);
 }
 
-static void	arr_sort(int *arr, int n)
+void	arr_sort(int *arr, int n)
 {
 	int	i;
 	int	j;

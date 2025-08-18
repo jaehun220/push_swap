@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libft/libft.h"
+# include <stdio.h>
 
 typedef struct s_node
 {
@@ -35,7 +36,7 @@ int		is_sort(t_stack *a);
 int		get_min(t_stack *a);
 int		get_max(t_stack *a);
 void	free_stack(t_stack *stack);
-int		get_distance_a(t_stack *a, int *bounds, int chunk_cnt);
+int		get_distance_a(t_stack *a, int *bounds, int chunk_cnt, int target);
 int		get_distance_b(t_stack *b);
 int		*stack_to_arr(t_stack *a);
 void	arr_sort(int *arr, int n);
@@ -73,11 +74,9 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-
-int		ft_atoill(const char *str);
-
-/*stack*/
 t_stack	*stack_init(void);
 t_stack	*stack_fill(t_stack *a, int *arr, int count);
+void	stack_free(t_stack *stack);
 
+int		ft_atoill(const char *str);
 #endif

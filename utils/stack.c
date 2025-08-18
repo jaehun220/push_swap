@@ -64,3 +64,20 @@ t_stack	*stack_fill(t_stack *a, int *arr, int count)
 	}
 	return (a);
 }
+
+void	stack_free(t_stack *stack)
+{
+	t_node	*cur;
+	t_node	*next;
+
+	if (!stack)
+		return ;
+	cur = stack->top;
+	while (cur)
+	{
+		next = cur->next;
+		free(cur);
+		cur = next;
+	}
+	free(stack);
+}

@@ -19,58 +19,60 @@ int	chunk_count(int n)
 	else if (n <= 100)
 		return (6);
 	else if (n <= 500)
-		return (11);
+		return (13);
 	return (18);
 }
 
-static t_node	*find_up_idx(t_stack *a, int *bounds, int chunk_cnt, int *up)
+static int	find_up_dist(t_stack *a, int *bounds, int chunk_cnt, int target)
 {
+	int		up;
 	t_node	*tmp;
 
-	*up = 0;
+	up = 0;
 	tmp = a->top;
-	while (tmp && !chunk_bound_check(tmp->value, bounds, chunk_cnt))
+	while (tmp && chunk_bound_check(tmp->value, bounds, chunk_cnt) != target)
 	{
-		tmp = tmp->next;
-		*up += 1;
+		tmp = tmp -> next;
+		up++;
 	}
-	return (tmp);
+	if (tmp == NULL)
+		return (-1);
+	return (up);
 }
 
-static t_node	*find_down_idx(t_stack *a, int *bounds, int cnt, int *down)
+static int	find_down_dist(t_stack *a, int *bounds, int chunk_cnt, int target)
 {
+	int		down;
 	t_node	*tmp;
 
-	*down = 1;
-	tmp = a->bottom;
-	while (tmp && !chunk_bound_check(tmp->value, bounds, cnt))
+	down = 1;
+	tmp = a->top;
+	while (tmp && chunk_bound_check(tmp->value, bounds, chunk_cnt) != target)
 	{
-		tmp = tmp->prev;
-		*down += 1;
+		tmp = tmp -> next;
+		down++;
 	}
-	return (tmp);
+	if (tmp == NULL)
+		return (-1);
+	return (down);
 }
 
-int	get_distance_a(t_stack *a, int *bounds, int chunk_cnt)
+int	get_distance_a(t_stack *a, int *bounds, int chunk_cnt, int target)
 {
-	t_node	*up_node;
-	t_node	*down_node;
 	int		up;
 	int		down;
 
-	up_node = find_up_idx(a, bounds, chunk_cnt, &up);
-	down_node = find_down_idx(a, bounds, chunk_cnt, &down);
-	if (up > down)
+	up = find_up_dist(a, bounds, chunk_cnt, target);
+	down = find_down_dist(a, bounds, chunk_cnt, target);
+	if (up == -1 && down == -1)
+		return (0);
+	if (up == -1)
 		return (-down);
-	else if (up < down)
+	if (down == -1)
 		return (up);
-	else
-	{
-		if (up_node->value < down_node->value)
-			return (up);
-		else
-			return (-down);
-	}
+	if (up <= down)
+		return (up);
+	return (-down);
 }
 
 int	get_distance_b(t_stack *b)

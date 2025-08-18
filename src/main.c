@@ -33,5 +33,7 @@ int	main(int argc, char const **argv)
 		simple_sort(a, b);
 	else
 		big_sort(a, b);
+	stack_free(a);
+	stack_free(b);
 	return (0);
 }
